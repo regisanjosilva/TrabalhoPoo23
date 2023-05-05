@@ -5,8 +5,14 @@ public class BreezeHacker extends Criatura {
 		
 	}
 
+		@Override
+		public void atacar(){
+			
+		}
 	
-	
-	
+		@Override
+		public void dano(){
+			
+		}
 
 }

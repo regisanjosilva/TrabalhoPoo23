@@ -6,5 +6,14 @@ public class BurnCoder extends Criatura{
 	}
 	
 	
+		@Override
+		public void atacar(){
+			
+		}
+	
+		@Override
+		public void dano(){
+			
+		}
 
 }

@@ -8,6 +8,15 @@ public class WaveNerd extends Criatura {
 	}
 	
 	
+		@Override
+		public void atacar(){
+			
+		}
+	
+		@Override
+		public void dano(){
+			
+		}
 	
 
 }

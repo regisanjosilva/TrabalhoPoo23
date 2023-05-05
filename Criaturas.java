@@ -65,6 +65,11 @@ public class Criatura {
 		this.pontoDeVida = pontoDeVida;
 	}
 	
+	// Metodos
 	
+	public abstract void atacar();
+	
+	public abstract void danos();
+		
 
 }
