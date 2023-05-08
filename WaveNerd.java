@@ -1,22 +1,26 @@
 public class WaveNerd extends Criatura {
-
-	public WaveNerd(String nome, int poder, int ataque, int defeza, int velocidade, int pontoDeVida) {
-		super(nome, poder, ataque, defeza, velocidade, pontoDeVida);
-	
-	
-	
+	Tipos tipo = Tipos.AGUA;
+	public WaveNerd() {
+		super();
 	}
-	
-	
-		@Override
-		public void atacar(){
-			
+	@Override
+	public int ataqueElemental(int poder, int ataque, int defesa, int fator,Tipos tipo) {
+		int dano = 0;
+		switch (tipo) {
+		case AR:
+			dano = (poder * ataque)/(defesa * 1);
+			break;
+		case FOGO:
+			dano = (poder * ataque)/(defesa * 2);
+			break;
+		case TERRA:
+			dano = (int) ((poder * ataque)/(defesa * 1));
+			break;
+		default:
+			System.out.println("Erro");
 		}
-	
-		@Override
-		public void dano(){
-			
-		}
+			return dano;	
+	}
 	
 
 }
