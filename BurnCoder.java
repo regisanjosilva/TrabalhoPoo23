@@ -1,26 +1,26 @@
 public class BurnCoder extends Criatura{
-	Tipos tipo = Tipos.FOGO;
+	
 	public BurnCoder() {
-		super();
+		super(Tipos.FOGO);
 	}
 		
 	@Override
-	public int ataqueElemental(int poder, int ataque, int defesa, int fator,Tipos tipo) {
+	public void levarAtaqueElemental(Criatura criatura) {
 		int dano = 0;
-		switch (tipo) {
+		switch (criatura.getTipo()) {
 		case AR:
-			dano = (poder * ataque)/(defesa * 2);
+			dano = (poder * ataque)/(defesa * 1);
 			break;
 		case TERRA:
 			dano = (poder * ataque)/(defesa * 1);
 			break;
 		case AGUA:
-			dano = (poder * ataque)/(defesa * 1);
+			dano = (poder * ataque)/(defesa * 2);
 			break;
 		default:
 			System.out.println("Erro");
 		}
-			return dano;	
+		receberDano(dano);		
 	}
 
 }

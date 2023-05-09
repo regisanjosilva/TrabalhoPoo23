@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Menus{
     static Scanner input = new Scanner(System.in); 
-    public static void menuPrincipal(){ 
+    public static int menuPrincipal(){ 
 		System.out.println("========Bem Vindo Ao Jogo======");
 		System.out.println("Escolha uma opção:");
 		System.out.println("1 - Iniciar jogo ");
@@ -11,8 +11,6 @@ public class Menus{
 		int opcao = input.nextInt();
 			
 		switch (opcao){
-			case 1: 
-			menuCriaturas();
 				
 			case 2: 
 			sair();
@@ -20,6 +18,7 @@ public class Menus{
 			default:
 			System.out.println("Opção inválida.Tente novamente!");
     }
+		return opcao;
     }
 			
 	public static int menuCriaturas(){

@@ -1,26 +1,20 @@
 public class WaveNerd extends Criatura {
-	Tipos tipo = Tipos.AGUA;
+	
 	public WaveNerd() {
-		super();
+		super(Tipos.AGUA);
 	}
 	@Override
-	public int ataqueElemental(int poder, int ataque, int defesa, int fator,Tipos tipo) {
-		int dano = 0;
-		switch (tipo) {
-		case AR:
-			dano = (poder * ataque)/(defesa * 1);
-			break;
-		case FOGO:
-			dano = (poder * ataque)/(defesa * 2);
-			break;
-		case TERRA:
-			dano = (int) ((poder * ataque)/(defesa * 1));
-			break;
-		default:
-			System.out.println("Erro");
-		}
-			return dano;	
+	public void levarAtaqueElemental(Criatura adversaria) {
+		int dano = calcularDano(adversaria);
+		receberDano(dano);	
 	}
 	
-
+	private int calcularDano(Criatura adversaria) {
+		int dano = 0;
+		if(adversaria.getTipo() == Tipos.TERRA) {
+			return dano = (int)((adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2));
+		}else {
+			return dano = (int)((adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 1));
+		}
+	}
 }

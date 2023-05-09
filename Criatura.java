@@ -7,13 +7,17 @@ public abstract class Criatura {
 	private int defesa;
 	private int velocidade;
 	private int pontoDeVida;
+	private int pontosDeVidaInicial;
+	private Tipos tipo;
 	
-	public Criatura() {
+	public Criatura(Tipos tipo) {
 		this.poder = 10 + random.nextInt(21);
 		this.ataque = 5 + random.nextInt(11);
 		this.defesa = 5 + random.nextInt(11);
 		this.velocidade = 1 + random.nextInt(10);
 		this.pontoDeVida = 200 + random.nextInt(201);
+		this.pontosDeVidaInicial = this.pontoDeVida;
+		this.tipo = tipo;
 	}
 
 	public int getPoder() {
@@ -52,8 +56,20 @@ public abstract class Criatura {
 		return pontoDeVida;
 	}
 
-	public void setPontoDeVida(int pontoDeVida) {
-		this.pontoDeVida = pontoDeVida;
+	public void setPontoDeVida(int PontoDeVida) {
+		this.pontoDeVida = PontoDeVida;
+	}
+	
+	public Tipos getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipos tipo) {
+		this.tipo = tipo;
+	}
+
+	public void receberDano (int dano) {
+		setPontoDeVida(getPontoDeVida() - dano);
 	}
 	
 	// Metodos
@@ -64,10 +80,11 @@ public abstract class Criatura {
 				this.velocidade,this.pontoDeVida);
 	}
 	
-	public static double ataque(int poder, int ataque, int defesa) {
-		return (poder*ataque) / defesa;
+	public  void levarAtaque(Criatura adversaria,Criatura minhaCriatura) {
+		int dano = (adversaria.getPoder() * adversaria.getAtaque()) / minhaCriatura.getDefesa();
+		minhaCriatura.receberDano(dano);
 	}
 	
-	public abstract int ataqueElemental(int poder, int ataque, int defesa, int fator,Tipos tipo);
+	public abstract void levarAtaqueElemental(Criatura criatura);
 		
 }

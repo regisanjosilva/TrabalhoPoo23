@@ -1,17 +1,17 @@
 public class BreezeHacker extends Criatura {
-	Tipos tipo = Tipos.AR;
+	
 	public BreezeHacker() {
-		super();
+		super(Tipos.AR);
 	}
 	@Override
-	public int ataqueElemental(int poder, int ataque, int defesa, int fator,Tipos tipo) {
+	public void levarAtaqueElemental(Criatura criatura) {
 		int dano = 0;
-		switch (tipo) {
+		switch (criatura.getTipo()) {
 		case TERRA:
-			dano = (poder * ataque)/(defesa * 2);
+			dano = (poder * ataque)/(defesa * 1);
 			break;
 		case FOGO:
-			dano = (poder * ataque)/(defesa * 1);
+			dano = (poder * ataque)/(defesa * 2);
 			break;
 		case AGUA:
 			dano = (int) ((poder * ataque)/(defesa * 1));
@@ -19,6 +19,6 @@ public class BreezeHacker extends Criatura {
 		default:
 			System.out.println("Erro");
 		}
-			return dano;	
+		receberDano(dano);		
 	}
 }
