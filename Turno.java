@@ -1,5 +1,12 @@
 public class Turno{
 	public static boolean repetirTurno(Criatura minhaCriatura,Criatura adversaria) {
+		
+		if(minhaCriatura.getVelocidade()>adversaria.getVelocidade()){
+			//chama método eu começo
+		}else{
+			//chama método adversário começa
+		}
+		
 		do {
 			//if ()
 			int opcao = Menus.menuCombate();
@@ -8,7 +15,7 @@ public class Turno{
 				adversaria.levarAtaque(adversaria, minhaCriatura);
 				break;
 			case 2:
-				adversaria.levarAtaqueElemental(minhaCriatura);
+				adversaria.levarAtaqueElemental(minhaCriatura, adversaria);
 				break;
 			}
 		}while(minhaCriatura.getPontoDeVida() > 0 || adversaria.getPontoDeVida() > 0);

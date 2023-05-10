@@ -8,9 +8,12 @@ public class StoneDev extends Criatura {
 		int dano = 0;
 		if (criatura.getTipo() == Tipos.AR) {
 			dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa() * 2);
-			receberDano(dano);		
-	}else {
-		Criatura.atacar(criatura);
-	}
+			receberDano(dano);	
 
+	}else {
+		dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa());
+		receberDano(dano);
+		//utiliza o mesmo método para realizar ataque, só entrega o valor diferente
+		}
+	}
 }
