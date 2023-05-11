@@ -44,4 +44,7 @@ public class Torneio {
 		Menus.menuTorneio();
 		Batalha.batalhar(minhaCriatura, criaturasAdversarias.get(0));
 	}
+	public void escolherStone(){
+		
+	}
 }

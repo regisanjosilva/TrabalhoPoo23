@@ -7,20 +7,15 @@ public class BurnCoder extends Criatura{
 	@Override
 	public void levarAtaqueElemental(Criatura criatura) {
 		int dano = 0;
-		switch (criatura.getTipo()) {
-		case AR:
-			dano = (poder * ataque)/(defesa * 1);
-			break;
-		case TERRA:
-			dano = (poder * ataque)/(defesa * 1);
-			break;
-		case AGUA:
-			dano = (poder * ataque)/(defesa * 2);
-			break;
-		default:
-			System.out.println("Erro");
+		if (criatura.getTipo() == Tipos.AGUA) {
+			dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa() * 2);
+			receberDano(dano);	
+
+	}else {
+		dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa());
+		receberDano(dano);
+		//utiliza o mesmo método para realizar ataque, só entrega o valor diferente
 		}
-		receberDano(dano);		
 	}
 
 }
