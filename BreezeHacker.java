@@ -1,19 +1,27 @@
 public class BreezeHacker extends Criatura {
-	
+	private String nome = "BreezeHacker";
 	public BreezeHacker() {
 		super(Tipos.AR);
 	}
 	@Override
-	public void levarAtaqueElemental(Criatura criatura) {
+	public void levarAtaqueElemental(Criatura adversaria) {
 		int dano = 0;
-		if (criatura.getTipo() == Tipos.FOGO) {
-			dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa() * 2);
-			receberDano(dano);	
-
-	}else {
-		dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa());
-		receberDano(dano);
-		//utiliza o mesmo método para realizar ataque, só entrega o valor diferente
+		switch (adversaria.getTipo()) {
+			case Tipos.TERRA:
+			case Tipos.AGUA:	
+				calcularDano(Criatura adversaria,this.criatura);
+				break;
+			case Tipos.FOGO:
+				dano = (adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2);
+				receberDano(dano);
+				break;
+			default:
+			System.out.println("Erro")
+				break;
 		}
-	}		
+	}
+	@Override
+	public void criarMensagemDeAtaque()	{
+		// criar mensagem personalizada para a classe
+	}
 }

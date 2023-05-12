@@ -1,21 +1,27 @@
 public class BurnCoder extends Criatura{
-	
+	private String nome = "BurnCoder";
 	public BurnCoder() {
 		super(Tipos.FOGO);
 	}
 		
 	@Override
-	public void levarAtaqueElemental(Criatura criatura) {
+	public void levarAtaqueElemental(Criatura adversaria) {
 		int dano = 0;
-		if (criatura.getTipo() == Tipos.AGUA) {
-			dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa() * 2);
-			receberDano(dano);	
-
-	}else {
-		dano = (criatura.getPoder() * criatura.getAtaque())/(getDefesa());
-		receberDano(dano);
-		//utiliza o mesmo método para realizar ataque, só entrega o valor diferente
+		switch (adversaria.getTipo()) {
+			case Tipos.TERRA:
+			case Tipos.AR:	
+				calcularDano(Criatura adversaria,this.criatura);
+				break;
+			case Tipos.AGUA:
+				dano = (adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2);
+				receberDano(dano);
+				break;
+			default:
+			System.out.println("Erro")
+				break;
 		}
+		@Override
+	public void criarMensagemDeAtaque()	{
+		// criar mensagem personalizada para a classe
 	}
-
 }

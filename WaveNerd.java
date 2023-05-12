@@ -1,28 +1,27 @@
 public class WaveNerd extends Criatura {
-	
+	private String nome = "WaveNerd";
 	public WaveNerd() {
 		super(Tipos.AGUA);
 	}
 	@Override
-	public void levarAtaqueElemental(Criatura criatura) {
+	public void levarAtaqueElemental(Criatura adversaria) {
 		int dano = 0;
-		if (criatura.getTipo() == Tipos.AR) {
-			dano = (criatura.getPoder() * criatura.getAtaque())/(adversaria.getDefesa() * 2);
-			receberDano(dano);	
-
-	}else {
-		dano = (criatura.getPoder() * criatura.getAtaque())/(adversaria.getDefesa());
-		receberDano(dano);
-		//utiliza o mesmo método para realizar ataque, só entrega o valor diferente
+		switch (criatura.getTipo()) {
+			case Tipos.FOGO:
+			case Tipos.AR:	
+				calcularDano(Criatura adversaria,this.criatura);
+				break;
+			case Tipos.TERRA:
+				dano = (adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2);
+				receberDano(dano);
+				break;
+			default:
+			System.out.println("Erro")
+				break;
 		}
-	}	
-	
-	private int calcularDano(Criatura adversaria) {
-		int dano = 0;
-		if(adversaria.getTipo() == Tipos.TERRA) {
-			return dano = (int)((adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2));
-		}else {
-			return dano = (int)((adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 1));
-		}
+	}
+	@Override
+	public void criarMensagemDeAtaque()	{
+		// criar mensagem personalizada para a classe
 	}
 }

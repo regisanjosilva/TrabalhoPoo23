@@ -3,8 +3,8 @@ import java.util.Collections;
 
 public class Torneio {
 	public void iniciar() {
-		Menus.menuPrincipal();
-		int opcao = Menus.menuCriaturas();
+		Menus.criarMenuPrincipal();
+		int opcao = Menus.criarMenuCriaturas();
 		Criatura minhaCriatura;
 		ArrayList <Criatura> criaturasAdversarias = new ArrayList<Criatura>();
 		
@@ -41,10 +41,13 @@ public class Torneio {
 			throw new IllegalArgumentException("Unexpected value: " + opcao);
 		}
 		
-		Menus.menuTorneio();
+		Menus.criarMenuTorneio();
 		Batalha.batalhar(minhaCriatura, criaturasAdversarias.get(0));
 	}
 	public void escolherStone(){
-		
+		// andré criou não sei qual o motivo
+	}
+	public static void mensagemCampeao() {
+		System.out.println("Parabéns! Você venceu o jogo!");
 	}
 }
