@@ -84,22 +84,24 @@ public abstract class Criatura {
 				this.velocidade,this.pontoDeVida);
 	}
 	
-	public void levarAtaque(Criatura adversaria,Criatura minhaCriatura) {
-		calcularDano(Criatura adversaria,Criatura minhaCriatura);
+	public void levarAtaque(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
+		calcularDano(Criatura criaturaAtacando,Criatura criaturaSendoAtacada);
 	}
 	
-	public abstract void levarAtaqueElemental(Criatura adversaria);
-	
-	public void atacar(Criatura criaturaSendoAtacada){
-		criaturaSendoAtacada.levarAtaque(this.criatura,criaturaSendoAtacada);
+	public abstract void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada);
+
+	public abstract Criatura criarListaDeAdversarios();
+
+	public void atacar(Criatura criaturaSendoAtacada,Criatura criaturaAtacando){
+		criaturaSendoAtacada.levarAtaque(criaturaAtacando,criaturaSendoAtacada);
 	}
 	public void mostrarAtributosDaCriatura (){
 		System.out.printf("\nEsses são os atributos da sua criatura:\nTipo: %s\nPontos de vida: %d\nPoder: %d\nAtaque: %d\nDefesa: %d\nVelocidade: %d\n",
 		getTipo().toString(),getPontoDeVida(),getPoder(),getAtaque(),getDefesa(),getVelocidade());
 	}
-	protected void calcularDano(Criatura adversaria,Criatura minhaCriatura) {
-		int dano = (adversaria.getPoder() * adversaria.getAtaque()) / minhaCriatura.getDefesa();
-		minhaCriatura.receberDano(dano);
+	protected void calcularDano(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
+		int dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque()) / criaturaSendoAtacada.getDefesa();
+		criaturaSendoAtacada.receberDano(dano);
 	}
 	public abstract void criarMensagemDeAtaque();
 }

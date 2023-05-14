@@ -4,15 +4,15 @@ public class StoneDev extends Criatura {
 		super(Tipos.TERRA);
 	}
 	@Override
-	public void levarAtaqueElemental(Criatura adversaria) {
+	public void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = 0;
-		switch (criatura.getTipo()) {
+		switch (criaturaAtacando.getTipo()) {
 			case Tipos.AGUA:
 			case Tipos.FOGO:	
-				calcularDano(Criatura adversaria,this.criatura);
+				calcularDano(criaturaAtacando,criaturaSendoAtacada);
 				break;
 			case Tipos.AR:
-				dano = (adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2);
+				dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque())/(criaturaSendoAtacada.getDefesa() * 2);
 				receberDano(dano);
 				break;
 			default:
@@ -20,6 +20,12 @@ public class StoneDev extends Criatura {
 				break;
 		}
 	}
+
+	@Override
+	public Criatura criarListaDeAdversarios(){
+		return Criatura adversarios[] = {new BurnCoder,new BreezeHacker,new WaveNerd};
+	}
+
 	@Override
 	public void criarMensagemDeAtaque()	{
 		// criar mensagem personalizada para a classe

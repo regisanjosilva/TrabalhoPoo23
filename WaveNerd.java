@@ -4,15 +4,15 @@ public class WaveNerd extends Criatura {
 		super(Tipos.AGUA);
 	}
 	@Override
-	public void levarAtaqueElemental(Criatura adversaria) {
+	public void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = 0;
-		switch (criatura.getTipo()) {
+		switch (criaturaAtacando.getTipo()) {
 			case Tipos.FOGO:
 			case Tipos.AR:	
-				calcularDano(Criatura adversaria,this.criatura);
+				calcularDano(criaturaAtacando,criaturaSendoAtacada);
 				break;
 			case Tipos.TERRA:
-				dano = (adversaria.getPoder() * adversaria.getAtaque())/(getDefesa() * 2);
+				dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque())/(criaturaSendoAtacada.getDefesa() * 2);
 				receberDano(dano);
 				break;
 			default:
@@ -20,6 +20,12 @@ public class WaveNerd extends Criatura {
 				break;
 		}
 	}
+
+	@Override
+	public Criatura criarListaDeAdversarios(){
+		return Criatura adversarios[] = {new BurnCoder,new StoneDev,new BreezeHacker};
+	}
+
 	@Override
 	public void criarMensagemDeAtaque()	{
 		// criar mensagem personalizada para a classe
