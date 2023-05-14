@@ -8,23 +8,24 @@ public class BurnCoder extends Criatura{
 	public void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = 0;
 		switch (criaturaAtacando.getTipo()) {
-			case Tipos.TERRA:
-			case Tipos.AR:	
+			case TERRA:
+			case AR:	
 				calcularDano(criaturaAtacando,criaturaSendoAtacada);
 				break;
-			case Tipos.AGUA:
+			case AGUA:
 				dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque())/(criaturaSendoAtacada.getDefesa() * 2);
 				receberDano(dano);
 				break;
 			default:
-			System.out.println("Erro")
+			System.out.println("Erro");
 				break;
 		}
+	}
 
 		@Override
-	public Criatura criarListaDeAdversarios(){
-		return Criatura adversarios[] = {new WaveNerd,new StoneDev,new BreezeHacker};
-	}
+    public Criatura[] criarInimigos() {
+        return new Criatura[]{new BreezeHacker(), new StoneDev(), new WaveNerd()};
+    }
 
 		@Override
 	public void criarMensagemDeAtaque()	{

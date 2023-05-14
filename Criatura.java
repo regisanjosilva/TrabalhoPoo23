@@ -84,16 +84,14 @@ public abstract class Criatura {
 				this.velocidade,this.pontoDeVida);
 	}
 	
-	public void levarAtaque(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
-		calcularDano(Criatura criaturaAtacando,Criatura criaturaSendoAtacada);
+	public final void levarAtaqueFisico(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
+		calcularDano(criaturaAtacando,criaturaSendoAtacada);
 	}
 	
 	public abstract void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada);
 
-	public abstract Criatura criarListaDeAdversarios();
-
 	public void atacar(Criatura criaturaSendoAtacada,Criatura criaturaAtacando){
-		criaturaSendoAtacada.levarAtaque(criaturaAtacando,criaturaSendoAtacada);
+		criaturaSendoAtacada.levarAtaqueFisico(criaturaAtacando,criaturaSendoAtacada);
 	}
 	public void mostrarAtributosDaCriatura (){
 		System.out.printf("\nEsses são os atributos da sua criatura:\nTipo: %s\nPontos de vida: %d\nPoder: %d\nAtaque: %d\nDefesa: %d\nVelocidade: %d\n",
@@ -104,5 +102,7 @@ public abstract class Criatura {
 		criaturaSendoAtacada.receberDano(dano);
 	}
 	public abstract void criarMensagemDeAtaque();
+
+	public abstract Criatura[] criarInimigos();
 }
 	

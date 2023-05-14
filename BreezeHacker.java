@@ -7,23 +7,24 @@ public class BreezeHacker extends Criatura {
 	public void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = 0;
 		switch (criaturaAtacando.getTipo()) {
-			case Tipos.TERRA:
-			case Tipos.AGUA:	
+			case TERRA:
+			case AGUA:	
 				calcularDano(criaturaAtacando,criaturaSendoAtacada);
 				break;
-			case Tipos.FOGO:
+			case FOGO:
 				dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque())/(criaturaSendoAtacada.getDefesa() * 2);
 				receberDano(dano);
 				break;
 			default:
-			System.out.println("Erro")
+			System.out.println("Erro");
 				break;
 		}
 	}
+	
 	@Override
-	public Criatura criarListaDeAdversarios(){
-		return Criatura adversarios[] = {new BurnCoder,new StoneDev,new WaveNerd};
-	}
+    public Criatura[] criarInimigos() {
+        return new Criatura[]{new BurnCoder(), new StoneDev(), new WaveNerd()};
+    }
 
 	@Override
 	public void criarMensagemDeAtaque()	{

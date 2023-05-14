@@ -7,24 +7,24 @@ public class StoneDev extends Criatura {
 	public void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = 0;
 		switch (criaturaAtacando.getTipo()) {
-			case Tipos.AGUA:
-			case Tipos.FOGO:	
+			case AGUA:
+			case FOGO:	
 				calcularDano(criaturaAtacando,criaturaSendoAtacada);
 				break;
-			case Tipos.AR:
+			case AR:
 				dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque())/(criaturaSendoAtacada.getDefesa() * 2);
 				receberDano(dano);
 				break;
 			default:
-			System.out.println("Erro")
+			System.out.println("Erro");
 				break;
 		}
 	}
 
 	@Override
-	public Criatura criarListaDeAdversarios(){
-		return Criatura adversarios[] = {new BurnCoder,new BreezeHacker,new WaveNerd};
-	}
+    public Criatura[] criarInimigos() {
+        return new Criatura[]{new BurnCoder(), new BreezeHacker(), new WaveNerd()};
+    }
 
 	@Override
 	public void criarMensagemDeAtaque()	{

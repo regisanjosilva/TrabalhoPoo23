@@ -5,43 +5,31 @@ public class Torneio {
         Menus.criarMenuPrincipal();
         int opcao = Menus.criarMenuCriaturas();
         Criatura minhaCriatura;
-        ArrayList<Criatura> criaturasAdversarias = new ArrayList<Criatura>();
+        Criatura[] criaturasAdversarias;
 
         switch (opcao) {
             case 1:
                 minhaCriatura = new StoneDev();
-                criaturasAdversarias.add(new WaveNerd());
-                criaturasAdversarias.add(new BurnCoder());
-                criaturasAdversarias.add(new BreezeHacker());
-                Collections.shuffle(criaturasAdversarias);
+                criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             case 2:
                 minhaCriatura = new WaveNerd();
-                criaturasAdversarias.add(new StoneDev());
-                criaturasAdversarias.add(new BurnCoder());
-                criaturasAdversarias.add(new BreezeHacker());
-                Collections.shuffle(criaturasAdversarias);
+                criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             case 3:
                 minhaCriatura = new BurnCoder();
-                criaturasAdversarias.add(new WaveNerd());
-                criaturasAdversarias.add(new StoneDev());
-                criaturasAdversarias.add(new BreezeHacker());
-                Collections.shuffle(criaturasAdversarias);
+                criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             case 4:
                 minhaCriatura = new BreezeHacker();
-                criaturasAdversarias.add(new StoneDev());
-                criaturasAdversarias.add(new BurnCoder());
-                criaturasAdversarias.add(new WaveNerd());
-                Collections.shuffle(criaturasAdversarias);
+                criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             default:
                 throw new IllegalArgumentException("Unexpected value: " + opcao);
         }
 
         Menus.criarMenuTorneio();
-        Batalha.batalhar(minhaCriatura, criaturasAdversarias.get(0));
+        Batalha.batalhar(minhaCriatura, criaturasAdversarias[0]);
     }
 
     public static void mensagemCampeao() {
