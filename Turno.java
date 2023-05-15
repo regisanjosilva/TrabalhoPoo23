@@ -3,14 +3,14 @@ import java.util.Random;
 public class Turno {
     private static boolean estaVivo = true;
     public static boolean repetirTurno(Criatura minhaCriatura, Criatura adversaria) {
-        if (minhaCriatura.getVelocidade() > adversaria.getVelocidade()) {
+        if (minhaCriatura.getVelocidade() >= adversaria.getVelocidade()) {
 			if (minhaCriatura.getPontoDeVida() > 0 || adversaria.getPontoDeVida() > 0) {
                 fazerAtaque(minhaCriatura, adversaria);
             }
 			// realiza a batalha com o jogador começando até algum morrer
 		} else {
 			if (minhaCriatura.getPontoDeVida() > 0 || adversaria.getPontoDeVida() > 0) {
-                fazerAtaque(minhaCriatura, adversaria);
+                receberAtaque(minhaCriatura, adversaria);
             }
 			// realiza a batalha com a máq. começando até algum morrer
 		}

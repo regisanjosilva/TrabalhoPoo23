@@ -1,6 +1,8 @@
 public class Torneio {
     private Criatura minhaCriatura;
     private Criatura[] criaturasAdversarias;
+    private final int NUMERO_DE_BATALHAS = 3;
+    private boolean venceu = true;
 
     public void iniciar() {
         Menu.criarMenuPrincipal();
@@ -12,12 +14,13 @@ public class Torneio {
     }
 
     private void iniciarBatalha() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < NUMERO_DE_BATALHAS; i++) {
             minhaCriatura.setPontosDeVidaInicial();
-            boolean venceu = Batalha.batalhar(minhaCriatura, criaturasAdversarias[i]);
         if (!venceu) {
             criarMensagemDerrota();
             System.exit(0);
+        }else if (venceu && i < 3){
+            venceu = Batalha.batalhar(minhaCriatura, criaturasAdversarias[i]);
         }
     }
         criarMensagemCampeao();
@@ -27,22 +30,22 @@ public class Torneio {
         switch (opcao) {
             case 1:
                 minhaCriatura = new StoneDev();
-                minhaCriatura.mensagemCriaturaCriada();
+                System.out.println(minhaCriatura.criarMensagemCriaturaCriada()); 
                 criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             case 2:
                 minhaCriatura = new WaveNerd();
-                minhaCriatura.mensagemCriaturaCriada();
+                System.out.println(minhaCriatura.criarMensagemCriaturaCriada());
                 criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             case 3:
                 minhaCriatura = new BurnCoder();
-                minhaCriatura.mensagemCriaturaCriada();
+                System.out.println(minhaCriatura.criarMensagemCriaturaCriada());
                 criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             case 4:
                 minhaCriatura = new BreezeHacker();
-                minhaCriatura.mensagemCriaturaCriada();
+                System.out.println(minhaCriatura.criarMensagemCriaturaCriada());
                 criaturasAdversarias = minhaCriatura.criarInimigos();
                 break;
             default:

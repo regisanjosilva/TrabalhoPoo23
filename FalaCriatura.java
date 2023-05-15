@@ -1,5 +1,5 @@
 public interface FalaCriatura{
     public void criarMensagemDeAtaqueFisico();
-    public String mensagemCriaturaCriada();
+    public String criarMensagemCriaturaCriada();
     public void criarMensagemDeAtaqueElemental();
 }

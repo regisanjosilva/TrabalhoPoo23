@@ -12,7 +12,7 @@ public class Batalha {
     }
 
     private static void criarMensagemInicioBatalha(Criatura minhaCriatura, Criatura adversaria){
-        System.out.printf("\nQue comece a batalha entre:\n%s\tVS\t%s\n",minhaCriatura.getNome(),adversaria.getNome());
+        System.out.printf("\nQue comece a batalha entre:\n%s\tVS%s\n",minhaCriatura.criarMensagemCriaturaCriada(),adversaria.criarMensagemCriaturaCriada());
     }
 
     private static void criarMensagemVitoriaBatalha() {

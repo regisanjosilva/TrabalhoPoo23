@@ -99,7 +99,7 @@ public abstract class Criatura implements FalaCriatura{
 	public void atacar(Criatura criaturaSendoAtacada,Criatura criaturaAtacando){
 		criaturaSendoAtacada.levarAtaqueFisico(criaturaAtacando,criaturaSendoAtacada);
 	}
-	public abstract String mensagemCriaturaCriada ();
+	public abstract String criarMensagemCriaturaCriada ();
 	
 	protected void calcularDano(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque()) / criaturaSendoAtacada.getDefesa();
