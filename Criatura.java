@@ -30,32 +30,16 @@ public abstract class Criatura implements FalaCriatura{
 		return poder;
 	}
 
-	public void setPoder(int poder) {
-		this.poder = poder;
-	}
-
 	public int getAtaque() {
 		return ataque;
-	}
-
-	public void setAtaque(int ataque) {
-		this.ataque = ataque;
 	}
 
 	public int getDefesa() {
 		return defesa;
 	}
 
-	public void setDefesa(int defesa) {
-		this.defesa = defesa;
-	}
-
 	public int getVelocidade() {
 		return velocidade;
-	}
-
-	public void setVelocidade(int velocidade) {
-		this.velocidade = velocidade;
 	}
 
 	public int getPontoDeVida() {
@@ -68,10 +52,6 @@ public abstract class Criatura implements FalaCriatura{
 	
 	public Tipo getTipo() {
 		return tipo;
-	}
-
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
 	}
 
 	public void setPontosDeVidaInicial() {

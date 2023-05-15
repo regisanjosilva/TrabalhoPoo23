@@ -54,7 +54,7 @@ public class Torneio {
     }
 
     public static void criarMensagemCampeao() {
-        System.out.printf("\nParabéns! Você venceu o jogo!\n");
+        System.out.printf("\n\nPARABÉNS! VOCÊ É O GRANDE VENCEDOR DO TORNEIO ELEMENTOOPS!!\n");
     }
     public static void criarMensagemDerrota() {
         System.out.printf("\nInicie um novo jogo para tentar novamente!\n");
