@@ -1,4 +1,4 @@
 
-public enum Tipos {
+public enum Tipo {
 	AGUA,FOGO,TERRA,AR;
 }

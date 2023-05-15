@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Criatura {
+public abstract class Criatura implements FalaCriatura{
 	private static final Random random = new Random();
 	private int poder;
 	private int ataque;
@@ -8,9 +8,9 @@ public abstract class Criatura {
 	private int velocidade;
 	private int pontoDeVida;
 	private int pontosDeVidaInicial;
-	private Tipos tipo;
+	private Tipo tipo;
 	
-	public Criatura(Tipos tipo) {
+	public Criatura(Tipo tipo) {
 		this.poder = 10 + random.nextInt(21);
 		this.ataque = 5 + random.nextInt(11);
 		this.defesa = 5 + random.nextInt(11);
@@ -60,11 +60,11 @@ public abstract class Criatura {
 		this.pontoDeVida = PontoDeVida;
 	}
 	
-	public Tipos getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(Tipos tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
 
@@ -93,15 +93,12 @@ public abstract class Criatura {
 	public void atacar(Criatura criaturaSendoAtacada,Criatura criaturaAtacando){
 		criaturaSendoAtacada.levarAtaqueFisico(criaturaAtacando,criaturaSendoAtacada);
 	}
-	public void mostrarAtributosDaCriatura (){
-		System.out.printf("\nEsses são os atributos da sua criatura:\nTipo: %s\nPontos de vida: %d\nPoder: %d\nAtaque: %d\nDefesa: %d\nVelocidade: %d\n",
-		getTipo().toString(),getPontoDeVida(),getPoder(),getAtaque(),getDefesa(),getVelocidade());
-	}
+	public abstract String mensagemCriaturaCriada ();
+	
 	protected void calcularDano(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = (criaturaAtacando.getPoder() * criaturaAtacando.getAtaque()) / criaturaSendoAtacada.getDefesa();
 		criaturaSendoAtacada.receberDano(dano);
 	}
-	public abstract void criarMensagemDeAtaque();
 
 	public abstract Criatura[] criarInimigos();
 }

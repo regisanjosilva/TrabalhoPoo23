@@ -9,7 +9,7 @@ public class Turno {
 
         do {
             //if ()
-            int opcao = Menus.criarMenuAtaque();
+            int opcao = Menu.criarMenuAtaque();
             switch (opcao) {
                 case 1:
                     adversaria.levarAtaqueFisico(adversaria, minhaCriatura);

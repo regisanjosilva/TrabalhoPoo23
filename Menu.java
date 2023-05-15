@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menus {
+public class Menu {
     static Scanner input = new Scanner(System.in);
 
     public static int criarMenuPrincipal() {
@@ -11,11 +11,14 @@ public class Menus {
         System.out.println("===============================");
         int opcao = input.nextInt();
         switch (opcao) {
+            case 1:
+            break;
             case 2:
                 sair();
-                criarMenuPrincipal();
+                return criarMenuPrincipal();
             default:
                 System.out.println("Opção inválida.Tente novamente!");
+                return criarMenuPrincipal();
         }
         return opcao;
     }
@@ -31,12 +34,22 @@ public class Menus {
         System.out.println("===============================");
         int opcao = input.nextInt();
         switch (opcao) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
             case 5:
                 sair();
-                criarMenuCriaturas();
+                return criarMenuCriaturas();
             default:
                 System.out.println("Não é uma opção válida. Tente novamente!");
+                return criarMenuCriaturas();
         }
+        
         return opcao;
     }
 
@@ -47,11 +60,14 @@ public class Menus {
         System.out.println("===============================");
         int opcao = input.nextInt();
         switch (opcao) {
+            case 1:
+                break;
             case 2:
                 sair();
-                criarMenuTorneio();
+                return criarMenuTorneio();
             default:
                 System.out.println("Não é uma opção válida. Tente novamente!");
+                return criarMenuTorneio();
         }
         return opcao;
     }
@@ -64,11 +80,18 @@ public class Menus {
         System.out.println("===============================");
         int opcao = input.nextInt();
         switch (opcao) {
+            case 1:
+                break;
+            case 2:
+                break;
             case 3:
                 sair();
-                criarMenuAtaque();
+                return criarMenuAtaque();
+
             default:
                 System.out.println("Não é uma opção válida. Tente novamente!");
+                return criarMenuAtaque();
+
         }
         return opcao;
     }
@@ -80,11 +103,16 @@ public class Menus {
         System.out.println("===============================");
         int opcao = input.nextInt();
         switch (opcao) {
+            case 1:
+                break;
             case 2:
                 sair();
-                criarMenuIniciarNovaBatalha();
+                return criarMenuIniciarNovaBatalha();
+
             default:
                 System.out.println("Não é uma opção válida. Tente novamente!");
+                return criarMenuIniciarNovaBatalha();
+
         }
         return opcao;
     }
@@ -99,6 +127,8 @@ public class Menus {
                 break;
             default:
                 System.out.println("Não é uma opção válida. Tente novamente!");
+                sair();
+                break;
         }
     }
 }
