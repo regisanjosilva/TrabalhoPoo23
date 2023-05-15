@@ -1,19 +1,25 @@
 public class Batalha {
-    public static int batalhar(Criatura minhaCriatura, Criatura adversaria) {
+    public static boolean batalhar(Criatura minhaCriatura, Criatura adversaria) {
         criarMensagemInicioBatalha(minhaCriatura, adversaria);
-        Turno.repetirTurno(minhaCriatura, adversaria);
-        return 1;
+        boolean comecarOutraBatalha = Turno.repetirTurno(minhaCriatura, adversaria);
+        if (comecarOutraBatalha) {
+            criarMensagemVitoriaBatalha();
+            return comecarOutraBatalha;
+        }else{
+            criarMensagemDerrotaBatalha();
+            return comecarOutraBatalha;
+        }
     }
 
     private static void criarMensagemInicioBatalha(Criatura minhaCriatura, Criatura adversaria){
-        System.out.printf("Que comece a batalha entre:\n%s\tVS\t%s",minhaCriatura.mensagemCriaturaCriada(),adversaria.mensagemCriaturaCriada());
+        System.out.printf("\nQue comece a batalha entre:\n%s\tVS\t%s\n",minhaCriatura.getNome(),adversaria.getNome());
     }
 
     private static void criarMensagemVitoriaBatalha() {
-        System.out.println("Parabéns! Você venceu a batalha!");
+        System.out.printf("\nParabéns! Você venceu a batalha!\n");
     }
 
     private static void criarMensagemDerrotaBatalha() {
-        System.out.println("Que pena, você perdeu a batalha!");
+        System.out.printf("\nQue pena, você perdeu a batalha!\n");
     }
 }

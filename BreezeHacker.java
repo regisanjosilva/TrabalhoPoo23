@@ -1,13 +1,9 @@
-public class BreezeHacker extends Criatura implements FalaCriatura {
-	private final String NOME = "BreezeHacker";
+public class BreezeHacker extends Criatura {
+	private final static String NOME = "BreezeHacker";
 	public BreezeHacker() {
-		super(Tipo.AR);
+		super(Tipo.AR,NOME);
 	}
 
-	public String getNOME() {
-		return NOME;
-	}
-	
 	@Override
 	public void levarAtaqueElemental(Criatura criaturaAtacando,Criatura criaturaSendoAtacada) {
 		int dano = 0;
@@ -33,16 +29,16 @@ public class BreezeHacker extends Criatura implements FalaCriatura {
 	@Override
 	public String mensagemCriaturaCriada(){
 		return System.out.printf("\nCuidado!!! A poderosa criatura %s surgiu na batalha!\n\nEsses são os atributos dela:\nTipo: %s\nPontos de vida: %d\nPoder: %d\nAtaque: %d\nDefesa: %d\nVelocidade: %d\n",
-		getNOME(),getTipo().toString(),getPontoDeVida(),getPoder(),getAtaque(),getDefesa(),getVelocidade()).toString();
+		getNome(),getTipo().toString(),getPontoDeVida(),getPoder(),getAtaque(),getDefesa(),getVelocidade()).toString();
 	}
 
 	@Override
 	public void criarMensagemDeAtaqueFisico()	{
-		System.out.println("Prepare-se para ser varrido pela fúria dos ventos!");
+		System.out.printf("\nPrepare-se para ser varrido pela fúria dos ventos!\n");
 	}
 
 	@Override
 	public void criarMensagemDeAtaqueElemental()	{
-		System.out.println("Meu ataque elemental fará você voar para longe, com a força do meu ciclone!");
+		System.out.printf("\nMeu ataque elemental fará você voar para longe, com a força do meu ciclone!\n");
 	}
 }

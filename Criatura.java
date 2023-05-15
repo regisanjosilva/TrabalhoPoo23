@@ -2,6 +2,7 @@ import java.util.Random;
 
 public abstract class Criatura implements FalaCriatura{
 	private static final Random random = new Random();
+	private String nome;
 	private int poder;
 	private int ataque;
 	private int defesa;
@@ -10,7 +11,8 @@ public abstract class Criatura implements FalaCriatura{
 	private int pontosDeVidaInicial;
 	private Tipo tipo;
 	
-	public Criatura(Tipo tipo) {
+	public Criatura(Tipo tipo,String nome) {
+		this.nome = nome;
 		this.poder = 10 + random.nextInt(21);
 		this.ataque = 5 + random.nextInt(11);
 		this.defesa = 5 + random.nextInt(11);
@@ -18,6 +20,10 @@ public abstract class Criatura implements FalaCriatura{
 		this.pontoDeVida = 200 + random.nextInt(201);
 		this.pontosDeVidaInicial = this.pontoDeVida;
 		this.tipo = tipo;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 	public int getPoder() {

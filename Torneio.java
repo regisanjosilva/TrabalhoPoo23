@@ -7,7 +7,20 @@ public class Torneio {
         int opcao = Menu.criarMenuCriaturas();
         escolherCriatura(opcao);
         Menu.criarMenuTorneio();
-        Batalha.batalhar(minhaCriatura, criaturasAdversarias[0]);
+        iniciarBatalha();
+        
+    }
+
+    private void iniciarBatalha() {
+        for (int i = 0; i < 3; i++) {
+            minhaCriatura.setPontosDeVidaInicial();
+            boolean venceu = Batalha.batalhar(minhaCriatura, criaturasAdversarias[i]);
+        if (!venceu) {
+            criarMensagemDerrota();
+            System.exit(0);
+        }
+    }
+        criarMensagemCampeao();
     }
 
     private void escolherCriatura(int opcao){
@@ -15,9 +28,7 @@ public class Torneio {
             case 1:
                 minhaCriatura = new StoneDev();
                 minhaCriatura.mensagemCriaturaCriada();
-                System.out.println("TEste");
                 criaturasAdversarias = minhaCriatura.criarInimigos();
-                System.out.println("teste 2");
                 break;
             case 2:
                 minhaCriatura = new WaveNerd();
@@ -39,7 +50,10 @@ public class Torneio {
         }
     }
 
-    public static void mensagemCampeao() {
-        System.out.println("Parabéns! Você venceu o jogo!");
+    public static void criarMensagemCampeao() {
+        System.out.printf("\nParabéns! Você venceu o jogo!\n");
+    }
+    public static void criarMensagemDerrota() {
+        System.out.printf("\nInicie um novo jogo para tentar novamente!\n");
     }
 }
